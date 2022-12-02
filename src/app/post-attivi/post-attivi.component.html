@@ -1,20 +1,21 @@
+<!---Gestione colore attraverso la classe-->
 <div class="container">
-    <!---Gestione colore attraverso la classe-->
     <div [ngClass]="{
-  'bg-warning': post.type == 'news',
-  'bg-info': post.type == 'education',
-  'bg-dark text-white': post.type == 'politic'
-}" class="card mt-3" *ngFor="let post of posts">
+    'bg-warning': post.type == 'news',
+    'bg-info': post.type == 'education',
+    'bg-dark text-white': post.type == 'politic'
+  }" class="card mt-3" *ngFor="let post of posts">
         <div class="card-header">
-            {{post.id}}
+            <span appHighlight>Post
+                {{post.id}}</span>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
+            <h5 class="card-title">{{post.title | uppercase }}</h5>
             <p class="card-text">{{post.body}}</p>
-            <a class="btn btn-primary" *ngIf="post.active"
-                (click)="changeActive(post.id, post)">Disattiva</a>
-            <a class="btn btn-primary" *ngIf="!post.active">Attiva</a>
-            <a class="btn btn-danger" *ngIf="!post.active" (click)="elimina(post.id)">Elimina</a>
+            <a class="btn btn-primary" *ngIf="post.active" (click)="changeActive(post.id, post)">Disattiva</a>
+            <a class="btn btn-success" *ngIf="!post.active">Attiva</a>
+            <a class="btn btn-danger ms-2" *ngIf="post.active" (click)="elimina(post.id)">Elimina</a>
+            <a class="btn btn-success ms-2" [routerLink]="['/post/attivi', post.id]">Vai al post</a>
         </div>
     </div>
 </div>

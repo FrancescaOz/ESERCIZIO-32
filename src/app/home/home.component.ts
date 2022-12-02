@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { PostService, post } from '../post.service';
+import { post } from '../post.service';
 
 @Component({
     selector: 'app-home',
@@ -10,25 +9,14 @@ import { PostService, post } from '../post.service';
 export class HomeComponent implements OnInit {
 
     d: any;
-    postForm = this.formBuilder.group({
-        title:'',
-        body:'',
-        type:'',
-    });
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor() { }
 
     ngOnInit(): void {
     }
+    getData(value:any) {
 
-    onSubmit(): void {
-        console.warn('', this.postForm.value);
-       // this.d = {
-           // title: post.title,
-           // body: post.body,
-           // active: !post.active,
-          //  type: post.type,
-      //  }
-       // post(this.d)
-    }
+        post(value);
+        console.log(value)
+      }
 }

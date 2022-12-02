@@ -1,1 +1,19 @@
-<p>post works!</p>
+<!---CARD DETTAGLIO--->
+<div class="container">
+    <div [ngClass]="{
+    'bg-warning': posts[0].type == 'news',
+    'bg-info': posts[0].type == 'education',
+    'bg-dark text-white': posts[0].type == 'politic'
+  }" class="card mt-5" *ngFor="let post of posts">
+        <div class="card-header">
+            <span appHighlight>Post
+                {{posts[0].id}}</span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{posts[0].title | uppercase}}</h5>
+            <p class="card-text">{{posts[0].body}}</p>
+            <p class="card-text">{{posts[0].type}}</p>
+            <p class="card-text">{{posts[0].author}}</p>
+        </div>
+    </div>
+</div>

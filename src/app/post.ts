@@ -4,4 +4,5 @@ export interface Post {
     body:string,
     active: boolean,
     type: string,
+    author?: string
 }

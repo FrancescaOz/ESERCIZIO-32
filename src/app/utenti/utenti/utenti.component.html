@@ -1,0 +1,33 @@
+<!---METODO CON CHILD-->
+<div class="container text-center mt-4">
+    <h2>Utenti</h2>
+    <h5><i>maggiori dettagli al click</i></h5>
+    <hr>
+    <div>
+        <ul class="list-group list-group-flush">
+            <li [routerLink]="['utentiDettagli/', user.id]" routerLinkActive="active" class="list-group-item"
+                *ngFor="let user of users">{{user.name}}</li>
+        </ul>
+        <hr>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!----METODO ALTERNATIVO CON TESTO ALTERNATO (Necessita della Direttiva Comparsa)
+    <div class="container text-center mt-4">
+    <h2>Utenti</h2>
+    <h5><i>maggiori dettagli al click</i></h5>
+    <hr>
+    <div>
+        <ul class="list-group list-group-flush">
+            <li [routerLink]="[user.id]" routerLinkActive="active" class="list-group-item" *ngFor="let user of users"
+                (click)="active =!active">
+                {{user.name}}
+            </li>
+            <li class="mt-5 list-group-item" *ngIf="active"></li>
+            <li class="mt-5 list-group-item" *appComparsaUtenti="active">{{users}}</li>
+        </ul>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+-->
